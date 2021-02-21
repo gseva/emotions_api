@@ -1,0 +1,16 @@
+# onnx model dependencies
+onnx
+onnxruntime
+scipy
+Pillow
+
+# deepai api dependencies
+requests
+
+# aws rekognition dependencies
+boto3
+
+# api dependencies
+fastapi
+uvicorn[standard]
+python-multipart
