@@ -26,13 +26,6 @@ def to_classes(scores):
     return {inverse_mapping[i]: float(prob) for i, prob in enumerate(prob)}
 
 
-def array_from_pb_image(path):
-    tensor = onnx.TensorProto()
-    with open(path, 'rb') as f:
-        tensor.ParseFromString(f.read())
-    return numpy_helper.to_array(tensor)
-
-
 def load_model():
     return onnx.load('../assets/emotion_ferplus/model.onnx')
 
