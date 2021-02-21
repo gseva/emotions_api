@@ -6,7 +6,7 @@ conectandose a diferentes proveedores, actualmente son 3:
 
  - onnx: hace uso del modelo preentrenado [emotions fer+](https://github.com/onnx/models/tree/master/vision/body_analysis/emotion_ferplus) de onnx. Devuelve probabilidad de las 8 emociones básicas.
  - deepai: hace uso de la [api abierta de reconocimiento de expresión facial](https://deepai.org/machine-learning-model/facial-expression-recognition) de deepai. Devuelve la emoción predominante, y la confianza de ella.
- - rekognition: hace uso del servicio [aws rekognition](https://deepai.org/machine-learning-model/facial-expression-recognition). Devuelve la probabilidad de 8 emociones (a diferencia de onnx, la 8va emoción es `confused` en lugar de `contempt`)
+ - rekognition: hace uso del servicio [aws rekognition](https://aws.amazon.com/rekognition/). Devuelve la probabilidad de 8 emociones (a diferencia de onnx, la 8va emoción es `confused` en lugar de `contempt`)
 
 ### Como correr localmente
 
@@ -15,9 +15,6 @@ instalar las dependencias (se recomienda primero crear un entorno virtual):
 
 ```bash
 pip install -r requirements.txt
-
-# Para correr los notebooks:
-pip install -r requirements_notebooks.txt
 ```
 
 Correr la API:
@@ -119,3 +116,19 @@ Respuesta ejemplo de la API:
 Una vez levantada, se puede acceder la documentación de la API entrando a `http://localhost:8000/docs`.
 
 Se puede acceder otra versión de documentación entrando a `http://localhost:8000/redoc`.
+
+
+### Correr los notebooks
+
+Primero hay que instalar las dependencias de los notebooks (además de las dependencias normales):
+
+```bash
+pip install -r requirements.txt -r requirements_notebooks.txt
+```
+
+Luego correr
+
+```bash
+jupyter notebook
+```
+```
