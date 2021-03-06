@@ -32,9 +32,6 @@ def get_emotions(image_data, providers=['onnx', 'deepai', 'rekognition'],
         else:
             predictions.append(fill_prediction(provider, result))
 
-    for k, v in emotion_selectors_mapping.items():
-        print(k, 'score', v(predictions))
-
     return PredictorResponse(
         provider_predictions=predictions,
         predominant_emotion=selection_method(predictions)
@@ -64,7 +61,6 @@ def emotion_with_highest_score(predictions):
                 if v > highest_score:
                     emotion = k
                     highest_score = v
-    print('highest scores', emotion, highest_score)
     return emotion
 
 
@@ -74,7 +70,6 @@ def emotion_with_higher_sum_of_scores(predictions):
         if pred.confidences:
             for conf, val in pred.confidences.items():
                 scores[conf] += val
-    print('higher sum of scores', scores)
     return max(scores, key=scores.get)
 
 
