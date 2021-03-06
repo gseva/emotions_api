@@ -29,5 +29,5 @@ def call_rekognition_api(image_data):
     )
 
     emotions = response['FaceDetails'][0]['Emotions']
-    confidences = {e['Type'].lower(): e['Confidence'] for e in emotions}
+    confidences = {e['Type'].lower(): e['Confidence'] / 100 for e in emotions}
     return {emotion_table.get(k, k): v for k, v in confidences.items()}

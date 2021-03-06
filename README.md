@@ -73,6 +73,14 @@ curl -F "image=@assets/images/happiness.jpg" \
   localhost:8000/predict/?providers=onnx,rekognition
 ```
 
+Tambien se puede especificar el método de selección de la emoción predominante via parámetro `selection_method`.
+Los valores aceptados son: `most_common`, `highest_score` o `sum_of_scores` (defecto).
+
+```bash
+curl -F "image=@assets/images/happiness.jpg" \
+  localhost:8000/predict/?selection_method=highest_score
+```
+
 Respuesta ejemplo de la API:
 
 ```json
